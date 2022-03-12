@@ -30,7 +30,6 @@ def jogar():
 
 
 
-
     print("Fim do jogo!")
 
 
