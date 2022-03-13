@@ -18,5 +18,10 @@ def escolhe_jogo():
         print("Jogando Adivinhação")
         adivinhacao.jogar()
 
+#Chegagem de escopo
+""" No Python, precisamos definir o módulo que está sendo executado. 
+    Nesse menu, se executarmos o código sem a checagem, a execução entrará no primeiro import,
+    o que não deveria acontecer, então a checagem permite verificar o 'main' que estamos executando
+    e permanecer neste módulo."""
 if(__name__ == "__main__"):
     escolhe_jogo()
