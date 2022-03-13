@@ -10,8 +10,6 @@ def jogar():#Os itens dentro dessa função chamam outras funções e deixam o c
     acertou = False
     erros = 0
 
-
-
     while(not enforcou and not acertou):
         chute = solicita_chute()
 
@@ -19,19 +17,19 @@ def jogar():#Os itens dentro dessa função chamam outras funções e deixam o c
             marca_chute_correto(chute, letras_acertadas, palavra_secreta)
         else:
             erros += 1
+            desenha_forca(erros)
 
-        enforcou = erros == 6
+        enforcou = erros == 7
         acertou = "_" not in letras_acertadas
         print(letras_acertadas)
 
     if(acertou):
-        imprime_mensagem_ganhador()
+        imprime_mensagem_ganhador(palavra_secreta)#tanto no if quanto no else precisa declarar para retornar a função
     else:
-        imprime_mensagem_perdedor()
+        imprime_mensagem_perdedor(palavra_secreta)
 
 
-
-
+#Funções
 
 def apresentacao():
     #Introdução
@@ -70,14 +68,88 @@ def marca_chute_correto(chute, letras_acertadas, palavra_secreta):
         index += 1
 
 def imprime_mensagem_ganhador(palavra_secreta):
-    return print("Parabéns, você acertou! A palavra secreta é {}".format(palavra_secreta.upper()))
+    print("Parabéns, você acertou! A palavra secreta é {}".format(palavra_secreta.upper()))
+    print("       ___________      ")
+    print("      '._==_==_=_.'     ")
+    print("      .-\\:      /-.    ")
+    print("     | (|:.     |) |    ")
+    print("      '-|:.     |-'     ")
+    print("        \\::.    /      ")
+    print("         '::. .'        ")
+    print("           ) (          ")
+    print("         _.' '._        ")
+    print("        '-------'       ")
     print("Fim do jogo!")
 
 def imprime_mensagem_perdedor(palavra_secreta):
-    return print("Poxa, você não acertou! A palavra secreta é {}".format(palavra_secreta.upper()))
+    print("Poxa, você não acertou! A palavra secreta é {}".format(palavra_secreta.upper()))
+    print("    _______________         ")
+    print("   /               \       ")
+    print("  /                 \      ")
+    print("//                   \/\  ")
+    print("\|   XXXX     XXXX   | /   ")
+    print(" |   XXXX     XXXX   |/     ")
+    print(" |   XXX       XXX   |      ")
+    print(" |                   |      ")
+    print(" \__      XXX      __/     ")
+    print("   |\     XXX     /|       ")
+    print("   | |           | |        ")
+    print("   | I I I I I I I |        ")
+    print("   |  I I I I I I  |        ")
+    print("   \_             _/       ")
+    print("     \_         _/         ")
+    print("       \_______/           ")
     print("Fim do jogo!")
 
+def desenha_forca(erros):
+    print("  _______     ")
+    print(" |/      |    ")
 
+    if(erros == 1):
+        print(" |      (_)   ")
+        print(" |            ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 2):
+        print(" |      (_)   ")
+        print(" |      \     ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 3):
+        print(" |      (_)   ")
+        print(" |      \|    ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 4):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 5):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |            ")
+
+    if(erros == 6):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      /     ")
+
+    if (erros == 7):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      / \   ")
+
+    print(" |            ")
+    print("_|___         ")
+    print()
 
 if(__name__ == "__main__"):#Sempre será no final
     jogar()
